@@ -48,14 +48,16 @@ import org.apache.http.util.EntityUtils;
 public class PingConnectionUtility {
 	public static void main(String[] args) {
 		try {
-			PingConnectionUtility.httpPingable("https://google.com");  // Working
-			PingConnectionUtility.httpPingable("https://googletEST.com"); // Fail
+			//PingConnectionUtility.httpPingable("https://google.com");  // Working
+			//PingConnectionUtility.httpPingable("https://api.soundcloud.com/oauth22"); // Fail
+			
+			PingConnectionUtility.httpPingable(args[0]);
 		} catch (Exception exception) {
 			System.out.println("Error in performing the request");
 			System.out.println(exception.toString());
 
 		} // catch
-	}
+	}  // static void main
 
 	private static void httpPingable(String targetURI) throws IOException, URISyntaxException {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -90,6 +92,7 @@ public class PingConnectionUtility {
 			response.close();
 		} // finally
 
-	}
+	}  // httpPingable
 
-}
+}  // class PingConnectionUtility
+
